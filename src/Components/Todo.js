@@ -25,33 +25,35 @@ function Todo({ todo, toggleComplete, removeTodo, toggleComment }) {
  
 
   return (
-    <div style={{ display: 'flex', fontSize: '2rem', flexDirection: 'column' }}>
-      <div style={{ display: 'flex', fontSize: '2rem', flexDirection: 'row', justifyContent:'center' }}>
-        <li
-          style={{
-            textDecoration: todo.completed ? 'line-through' : null,
-            listStyle: 'none',
-            display: 'inline-block',
-            margin: '1rem',
-          }}
-        >
-          {todo.task}
-        </li>
-        <FontAwesomeIcon
-          icon={faCheckCircle}
-          onClick={hanldeCompleteClick}
-          className="button-todo btn-complete"
-        />
-        <FontAwesomeIcon
-          icon={faComment}
-          onClick={handleComment}
-          className="button-todo btn-comment"
-        />
-        <FontAwesomeIcon
-          icon={faTimesCircle}
-          onClick={handleRemoveTodo}
-          className="button-todo btn-close"
-        />
+    
+    <div  className="todo-container">
+      <div className="toto-body">
+        <div className="todo-data">
+          <li
+            style={{
+              textDecoration: todo.completed ? 'line-through' : null,
+            }}
+          >
+            {todo.task}
+          </li>
+        </div>
+        <div className="todo-actions">
+          <FontAwesomeIcon
+            icon={faCheckCircle}
+            onClick={hanldeCompleteClick}
+            className="button-todo btn-complete"
+          />
+          <FontAwesomeIcon
+            icon={faComment}
+            onClick={handleComment}
+            className="button-todo btn-comment"
+          />
+          <FontAwesomeIcon
+            icon={faTimesCircle}
+            onClick={handleRemoveTodo}
+            className="button-todo btn-close"
+          />
+        </div>
       </div>
       <div>{todo.comment && <Comment />}</div>
     </div>

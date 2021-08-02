@@ -72,6 +72,7 @@ button:hover {
 	box-shadow: 0 1rem 1rem rgba(rgb(99, 99, 99), 0.3);
 }
 
+
 button:active,
 button:focus {
 	outline: none;
@@ -108,7 +109,40 @@ button:focus {
 .btn-close {
 	color: rgba(255, 0, 0, 0.74);
 }
+.todo-list ul{
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 
 .todo-container {
-	transition: all 0.2s;
+	width: 100%;
+	max-width: 50rem;
+	display: flex;
+	font-size: 2rem;
+	flex-direction: column;
+	background-color: rgb(59, 59, 59);
+	border-radius: 0.5rem;
+	margin: 1rem;
+	
+}
+
+.toto-body {
+	display: inline-flex;
+	font-size: 2rem;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.toto-body li {
+	width: 100%;
+	list-style: none;
+	display: inline;
+	margin: 1rem;
+}
+
+.todo-data{
+	display: flex;
+	justify-content: flex-start;
 }
