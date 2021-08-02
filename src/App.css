@@ -26,7 +26,6 @@ body {
 
 form {
 	padding: 5rem;
-
 }
 
 .form input {
@@ -34,6 +33,7 @@ form {
 	border: none;
 	height: 3.5rem;
 	width: 100%;
+	max-width: 50rem;
 	border-radius: 25px;
 	padding: 2rem;
 	outline: none;
@@ -109,6 +109,6 @@ button:focus {
 	color: rgba(255, 0, 0, 0.74);
 }
 
-.todo-container{
+.todo-container {
 	transition: all 0.2s;
 }
