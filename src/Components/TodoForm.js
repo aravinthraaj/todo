@@ -31,8 +31,9 @@ function TodoForm({ addTodo }) {
         value={todo.task}
         onChange={getInputOnChange}
         autoComplete="off"
+        placeholder="Enter your task....!"
       />
-      <button type="submit"> Add Task</button>
+      <button type="submit"> Add Task here</button>
     </form>
   );
 }
