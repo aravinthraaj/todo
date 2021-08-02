@@ -4,7 +4,6 @@ import Comment from './Comment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCheckCircle,
-  faCoffee,
   faComment,
   faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
