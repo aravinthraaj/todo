@@ -8,12 +8,13 @@ function TodoForm({ addTodo }) {
     task: '',
     completed: false,
     comment: false,
+    comment_data:''
   });
 
   function getInputOnChange(e) {
     setTodo((todo) => ({ ...todo, task: e.target.value }));
-    console.log(todo.task);
   }
+ 
   function handleInput(e) {
     e.preventDefault();
     if (todo.task.trim()) {

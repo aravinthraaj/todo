@@ -71,6 +71,7 @@ button:hover {
 	transform: translateY(-0.3rem);
 	box-shadow: 0 1rem 1rem rgba(rgb(99, 99, 99), 0.3);
 }
+
 button:active,
 button:focus {
 	outline: none;
@@ -106,4 +107,8 @@ button:focus {
 }
 .btn-close {
 	color: rgba(255, 0, 0, 0.74);
+}
+
+.todo-container{
+	transition: all 0.2s;
 }

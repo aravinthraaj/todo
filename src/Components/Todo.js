@@ -21,6 +21,9 @@ function Todo({ todo, toggleComplete, removeTodo, toggleComment }) {
     toggleComment(todo.id);
   }
 
+
+ 
+
   return (
     <div style={{ display: 'flex', fontSize: '2rem', flexDirection: 'column' }}>
       <div style={{ display: 'flex', fontSize: '2rem', flexDirection: 'row', justifyContent:'center' }}>
