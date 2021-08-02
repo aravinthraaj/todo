@@ -7,7 +7,7 @@ const LOCAL_STORAGE_KEY = 'todo-list-store';
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [comments, setComments] =useState([]); 
+  // const [comments, setComments] =useState([]); 
 
   useEffect(() => {
     const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
