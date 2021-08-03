@@ -8,7 +8,14 @@ import {
   faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
-function Todo({ todo, toggleComplete, removeTodo, toggleComment }) {
+function Todo({
+  todo,
+  toggleComplete,
+  removeTodo,
+  toggleComment,
+  todos,
+  setTodos,
+}) {
   function hanldeCompleteClick() {
     toggleComplete(todo.id);
   }
@@ -21,12 +28,22 @@ function Todo({ todo, toggleComplete, removeTodo, toggleComment }) {
     toggleComment(todo.id);
   }
 
-
- 
+  function getInputComment(value, name, id) {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return {
+            ...todo,
+            [name]: value,
+          };
+        }
+        return todo;
+      })
+    );
+  }
 
   return (
-    
-    <div  className="todo-container">
+    <div className="todo-container">
       <div className="toto-body">
         <div className="todo-data">
           <li
@@ -55,7 +72,15 @@ function Todo({ todo, toggleComplete, removeTodo, toggleComment }) {
           />
         </div>
       </div>
-      <div>{todo.comment && <Comment />}</div>
+      <div>
+        {todo.comment && (
+          <Comment
+            getInputComment={getInputComment}
+            value={todo.comment_data}
+            id={todo.id}
+          />
+        )}
+      </div>
     </div>
   );
 }
@@ -65,5 +90,7 @@ Todo.propTypes = {
   toggleComplete: PropTypes.func,
   removeTodo: PropTypes.func,
   toggleComment: PropTypes.func,
+  todos: PropTypes.func,
+  setTodos: PropTypes.func,
 };
 export default Todo;

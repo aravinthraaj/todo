@@ -13,6 +13,7 @@ function App() {
     const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (storageTodos) {
       setTodos(storageTodos);
+      console.log(storageTodos);
     }
   }, []);
 
@@ -65,6 +66,8 @@ function App() {
         toggleComplete={toggleComplete}
         removeTodo={removeTodo}
         toggleComment={toggleComment}
+        addTodo={addTodo}
+        setTodos={setTodos}
       />
     </div>
   );

@@ -14,7 +14,7 @@ function TodoForm({ addTodo }) {
   function getInputOnChange(e) {
     setTodo((todo) => ({ ...todo, task: e.target.value }));
   }
- 
+
   function handleInput(e) {
     e.preventDefault();
     if (todo.task.trim()) {
