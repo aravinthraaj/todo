@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 *,
 *::after,
 *::before {
@@ -12,6 +14,7 @@ html {
 
 body {
 	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .App {
@@ -39,6 +42,7 @@ form {
 	outline: none;
 	transition: all 0.2s;
 	display: inline-block;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .form input:active,
@@ -65,13 +69,13 @@ button {
 	cursor: pointer;
 	margin: 1rem;
 	background-color: rgb(255, 255, 49);
+	font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
 	transform: translateY(-0.3rem);
 	box-shadow: 0 1rem 1rem rgba(rgb(99, 99, 99), 0.3);
 }
-
 
 button:active,
 button:focus {
@@ -104,16 +108,17 @@ button:focus {
 	color: greenyellow;
 }
 .btn-comment {
-	color: rgb(97, 230, 248);
+	color: rgb(145, 242, 255);
 }
 .btn-close {
 	color: rgba(255, 0, 0, 0.74);
 }
-.todo-list ul{
+.todo-list ul {
 	padding: 3rem;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .todo-container {
@@ -125,7 +130,6 @@ button:focus {
 	background-color: rgb(59, 59, 59);
 	border-radius: 0.5rem;
 	margin: 1rem;
-	
 }
 
 .toto-body {
@@ -142,7 +146,15 @@ button:focus {
 	margin: 1rem;
 }
 
-.todo-data{
+.todo-data {
 	display: flex;
 	justify-content: flex-start;
+}
+
+.comment {
+	padding: 1rem;
+	margin-bottom: 1rem;
+	border-radius: .5rem;
+	outline-color: rgb(104, 104, 104);
+	font-family: 'Montserrat', sans-serif;
 }

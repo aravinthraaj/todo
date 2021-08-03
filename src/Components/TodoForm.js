@@ -33,7 +33,7 @@ function TodoForm({ addTodo }) {
         autoComplete="off"
         placeholder="Enter your task....!"
       />
-      <button type="submit"> Add Task here</button>
+      <button type="submit"> Add Task</button>
     </form>
   );
 }

@@ -6,7 +6,8 @@ import {
   faCheckCircle,
   faComment,
   faTimesCircle,
-} from '@fortawesome/free-solid-svg-icons';
+} from '@fortawesome/free-regular-svg-icons';
+
 
 function Todo({
   todo,
@@ -70,6 +71,7 @@ function Todo({
             onClick={handleRemoveTodo}
             className="button-todo btn-close"
           />
+          
         </div>
       </div>
       <div>
