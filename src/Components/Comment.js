@@ -8,6 +8,7 @@ function Comment({ getInputComment, id, value = '' }) {
   return (
     <div>
       <textarea
+        className="comment"
         name="comment_data"
         id=""
         cols="30"
