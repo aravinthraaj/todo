@@ -2,14 +2,15 @@ import React from 'react';
 import Todo from './Todo';
 import PropTypes from 'prop-types';
 
-function TodoList({
-  todos,
-  toggleComplete,
-  removeTodo,
-  toggleComment,
-  addTodo,
-  setTodos,
-}) {
+function TodoList(props) {
+  const {
+    todos,
+    toggleComplete,
+    removeTodo,
+    toggleComment,
+    addTodo,
+    setTodos,
+  } = props;
   return (
     <div className="todo-list">
       <ul>
