@@ -9,7 +9,8 @@ function TodoList({
   toggleComment,
   addTodo,
   setTodos,
-}) {
+} ) {
+
   return (
     <div className="todo-list">
       <ul>
