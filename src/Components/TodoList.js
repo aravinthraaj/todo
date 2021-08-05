@@ -1,15 +1,17 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import Todo from './Todo';
 import PropTypes from 'prop-types';
+import { todosContext } from '../App';
 
-function TodoList({
-  todos,
-  toggleComplete,
-  removeTodo,
-  toggleComment,
-  addTodo,
-  setTodos,
-} ) {
+
+function TodoList(props) {
+  const {
+    toggle,
+    removeTodo,
+    addTodo,
+  } = props;
+
+  const {todos}= useContext(todosContext);
 
   return (
     <div className="todo-list">
@@ -18,12 +20,9 @@ function TodoList({
           <Todo
             key={todo.id}
             todo={todo}
-            toggleComplete={toggleComplete}
+            toggle={toggle}
             removeTodo={removeTodo}
-            toggleComment={toggleComment}
             addTodo={addTodo}
-            todos={todos}
-            setTodos={setTodos}
           />
         ))}
       </ul>
@@ -32,12 +31,9 @@ function TodoList({
 }
 
 TodoList.propTypes = {
-  todos: PropTypes.array,
-  toggleComplete: PropTypes.func,
+  toggle: PropTypes.func,
   removeTodo: PropTypes.func,
-  toggleComment: PropTypes.func,
   addTodo: PropTypes.func,
-  setTodos: PropTypes.func,
 };
 
 export default TodoList;
