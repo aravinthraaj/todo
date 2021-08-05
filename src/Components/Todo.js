@@ -1,6 +1,8 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
+import { todosContext } from '../App';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCheckCircle,
@@ -8,15 +10,11 @@ import {
   faTimesCircle,
 } from '@fortawesome/free-regular-svg-icons';
 
+function Todo(props) {
+  const {todo, toggleComplete, removeTodo, toggleComment } =
+		props;
+  const {todos, setTodos}= useContext(todosContext);
 
-function Todo({
-  todo,
-  toggleComplete,
-  removeTodo,
-  toggleComment,
-  todos,
-  setTodos,
-}) {
   function hanldeCompleteClick() {
     toggleComplete(todo.id);
   }
@@ -71,7 +69,6 @@ function Todo({
             onClick={handleRemoveTodo}
             className="button-todo btn-close"
           />
-          
         </div>
       </div>
       <div>

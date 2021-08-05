@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
+import { todoContext } from '../App';
 
 function TodoForm({ addTodo }) {
-  const [todo, setTodo] = useState({
-    id: '',
-    task: '',
-    completed: false,
-    comment: false,
-    comment_data:''
-  });
-
+  const {todo,setTodo} = useContext(todoContext);
+  
   function getInputOnChange(e) {
     setTodo((todo) => ({ ...todo, task: e.target.value }));
   }

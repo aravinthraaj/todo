@@ -5,7 +5,31 @@ import './App.css';
 
 const LOCAL_STORAGE_KEY = 'todo-list-store';
 
+export const todoContext = React.createContext({
+  todo:{
+    id: '',
+    task: '',
+    completed: false,
+    comment: false,
+    comment_data:''
+  },
+  setTodo: () =>{}
+});
+
+export const todosContext = React.createContext({
+  todos:[],
+  setTodos: () =>{}
+});
+
+
 function App() {
+  const [todo, setTodo] = useState({
+    id: '',
+    task: '',
+    completed: false,
+    comment: false,
+    comment_data:''
+  });
   const [todos, setTodos] = useState([]);
   // const [comments, setComments] =useState([]); 
 
@@ -59,16 +83,18 @@ function App() {
 
   return (
     <div className="App">
-      <header> What's todays task ....... </header>
-      <TodoForm addTodo={addTodo} />
-      <TodoList
-        todos={todos}
-        toggleComplete={toggleComplete}
-        removeTodo={removeTodo}
-        toggleComment={toggleComment}
-        addTodo={addTodo}
-        setTodos={setTodos}
-      />
+      <todoContext.Provider value={{todo,setTodo}}>
+        <todosContext.Provider value={{todos,setTodos}}>
+          <header> What's todays task ....... </header>
+          <TodoForm addTodo={addTodo} />
+          <TodoList
+            toggleComplete={toggleComplete}
+            removeTodo={removeTodo}
+            toggleComment={toggleComment}
+            addTodo={addTodo}
+          />
+        </todosContext.Provider>
+      </todoContext.Provider>
     </div>
   );
 }
