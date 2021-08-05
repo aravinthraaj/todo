@@ -3,6 +3,7 @@ import Todo from './Todo';
 import PropTypes from 'prop-types';
 import { todosContext } from '../App';
 
+
 function TodoList(props) {
   const {
     toggle,
@@ -11,6 +12,7 @@ function TodoList(props) {
   } = props;
 
   const {todos}= useContext(todosContext);
+
   return (
     <div className="todo-list">
       <ul>
