@@ -5,9 +5,8 @@ import { todosContext } from '../App';
 
 function TodoList(props) {
   const {
-    toggleComplete,
+    toggle,
     removeTodo,
-    toggleComment,
     addTodo,
   } = props;
 
@@ -19,9 +18,8 @@ function TodoList(props) {
           <Todo
             key={todo.id}
             todo={todo}
-            toggleComplete={toggleComplete}
+            toggle={toggle}
             removeTodo={removeTodo}
-            toggleComment={toggleComment}
             addTodo={addTodo}
           />
         ))}
@@ -31,12 +29,9 @@ function TodoList(props) {
 }
 
 TodoList.propTypes = {
-  todos: PropTypes.array,
-  toggleComplete: PropTypes.func,
+  toggle: PropTypes.func,
   removeTodo: PropTypes.func,
-  toggleComment: PropTypes.func,
   addTodo: PropTypes.func,
-  setTodos: PropTypes.func,
 };
 
 export default TodoList;

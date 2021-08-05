@@ -6,21 +6,20 @@ import './App.css';
 const LOCAL_STORAGE_KEY = 'todo-list-store';
 
 export const todoContext = React.createContext({
-  todo:{
+  todo: {
     id: '',
     task: '',
     completed: false,
     comment: false,
-    comment_data:''
+    comment_data: '',
   },
-  setTodo: () =>{}
+  setTodo: () => {},
 });
 
 export const todosContext = React.createContext({
-  todos:[],
-  setTodos: () =>{}
+  todos: [],
+  setTodos: () => {},
 });
-
 
 function App() {
   const [todo, setTodo] = useState({
@@ -28,10 +27,10 @@ function App() {
     task: '',
     completed: false,
     comment: false,
-    comment_data:''
+    comment_data: '',
   });
   const [todos, setTodos] = useState([]);
-  // const [comments, setComments] =useState([]); 
+  // const [comments, setComments] =useState([]);
 
   useEffect(() => {
     const storageTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
@@ -45,33 +44,28 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
   }, [todos]);
 
-  function toggleComplete(id) {
+  function toggle(name, id) {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
-          return {
-            ...todo,
-            completed: !todo.completed,
-          };
+          if (name === 'completed') {
+            return {
+              ...todo,
+              completed: !todo.completed,
+            };
+          }
+          if (name === 'comment') {
+            return {
+              ...todo,
+              comment: !todo.comment,
+            };
+          }
         }
         return todo;
       })
     );
   }
-
-  function toggleComment(id) {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            comment: !todo.comment,
-          };
-        }
-        return todo;
-      })
-    );
-  }
+  
 
   function removeTodo(id) {
     setTodos(todos.filter((todo) => todo.id !== id));
@@ -83,14 +77,13 @@ function App() {
 
   return (
     <div className="App">
-      <todoContext.Provider value={{todo,setTodo}}>
-        <todosContext.Provider value={{todos,setTodos}}>
+      <todoContext.Provider value={{ todo, setTodo }}>
+        <todosContext.Provider value={{ todos, setTodos }}>
           <header> What's todays task ....... </header>
           <TodoForm addTodo={addTodo} />
           <TodoList
-            toggleComplete={toggleComplete}
+            toggle={toggle}
             removeTodo={removeTodo}
-            toggleComment={toggleComment}
             addTodo={addTodo}
           />
         </todosContext.Provider>

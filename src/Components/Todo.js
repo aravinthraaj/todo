@@ -11,12 +11,12 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 
 function Todo(props) {
-  const {todo, toggleComplete, removeTodo, toggleComment } =
+  const {todo,toggle, removeTodo} =
 		props;
   const {todos, setTodos}= useContext(todosContext);
 
   function hanldeCompleteClick() {
-    toggleComplete(todo.id);
+    toggle("completed",todo.id);
   }
 
   function handleRemoveTodo() {
@@ -24,7 +24,7 @@ function Todo(props) {
   }
 
   function handleComment() {
-    toggleComment(todo.id);
+    toggle("comment",todo.id);
   }
 
   function getInputComment(value, name, id) {
@@ -86,10 +86,7 @@ function Todo(props) {
 
 Todo.propTypes = {
   todo: PropTypes.object,
-  toggleComplete: PropTypes.func,
+  toggle: PropTypes.func,
   removeTodo: PropTypes.func,
-  toggleComment: PropTypes.func,
-  todos: PropTypes.func,
-  setTodos: PropTypes.func,
 };
 export default Todo;
