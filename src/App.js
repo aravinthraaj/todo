@@ -65,7 +65,7 @@ function App() {
         return todo;
       })
     );
-  })
+  },[])
   // function toggle(name, id) {
   //   setTodos(todos=>
   //     todos.map((todo) => {
