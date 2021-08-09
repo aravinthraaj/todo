@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext,useCallback} from 'react';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
 import { todosContext } from '../App';
@@ -27,7 +27,7 @@ function Todo(props) {
     toggle("comment",todo.id);
   }
 
-  function getInputComment(value, name, id) {
+  const getInputComment = useCallback((value, name, id)=>{
     setTodos(
       todos.map((todo) => {
         if (todo.id === id) {
@@ -39,7 +39,8 @@ function Todo(props) {
         return todo;
       })
     );
-  }
+  })
+
 
   return (
     <div className="todo-container">

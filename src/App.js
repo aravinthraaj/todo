@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect ,useCallback} from 'react';
 import TodoForm from './Components/TodoForm';
 import TodoList from './Components/TodoList';
+import Todo from './Components/Todo';
 import './App.css';
 
 const LOCAL_STORAGE_KEY = 'todo-list-store';
@@ -44,8 +45,8 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
   }, [todos]);
 
-  function toggle(name, id) {
-    setTodos(
+  const toggle = useCallback((name,id)=>{
+    setTodos(todos=>
       todos.map((todo) => {
         if (todo.id === id) {
           if (name === 'completed') {
@@ -64,7 +65,28 @@ function App() {
         return todo;
       })
     );
-  }
+  })
+  // function toggle(name, id) {
+  //   setTodos(todos=>
+  //     todos.map((todo) => {
+  //       if (todo.id === id) {
+  //         if (name === 'completed') {
+  //           return {
+  //             ...todo,
+  //             completed: !todo.completed,
+  //           };
+  //         }
+  //         if (name === 'comment') {
+  //           return {
+  //             ...todo,
+  //             comment: !todo.comment,
+  //           };
+  //         }
+  //       }
+  //       return todo;
+  //     })
+  //   );
+  // }
   
 
   function removeTodo(id) {
@@ -81,11 +103,17 @@ function App() {
         <todosContext.Provider value={{ todos, setTodos }}>
           <header> What's todays task ....... </header>
           <TodoForm addTodo={addTodo} />
-          <TodoList
-            toggle={toggle}
-            removeTodo={removeTodo}
-            addTodo={addTodo}
-          />
+          <TodoList>
+            {todos.map((todo) => (
+              <Todo
+                key={todo.id}
+                todo={todo}
+                toggle={toggle}
+                removeTodo={removeTodo}
+                addTodo={addTodo}
+              />
+            ))}
+          </TodoList>
         </todosContext.Provider>
       </todoContext.Provider>
     </div>

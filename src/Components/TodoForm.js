@@ -36,4 +36,5 @@ function TodoForm({ addTodo }) {
 TodoForm.propTypes = {
   addTodo: PropTypes.func,
 };
+
 export default TodoForm;

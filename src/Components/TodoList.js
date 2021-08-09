@@ -1,30 +1,19 @@
-import React,{useContext} from 'react';
-import Todo from './Todo';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { todosContext } from '../App';
+
 
 
 function TodoList(props) {
   const {
-    toggle,
-    removeTodo,
-    addTodo,
+    children
   } = props;
 
-  const {todos}= useContext(todosContext);
+ 
 
   return (
     <div className="todo-list">
       <ul>
-        {todos.map((todo) => (
-          <Todo
-            key={todo.id}
-            todo={todo}
-            toggle={toggle}
-            removeTodo={removeTodo}
-            addTodo={addTodo}
-          />
-        ))}
+        {children}
       </ul>
     </div>
   );
@@ -34,6 +23,7 @@ TodoList.propTypes = {
   toggle: PropTypes.func,
   removeTodo: PropTypes.func,
   addTodo: PropTypes.func,
+  children:PropTypes.node
 };
 
 export default TodoList;
