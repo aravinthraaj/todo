@@ -39,7 +39,7 @@ function Todo(props) {
         return todo;
       })
     );
-  },[])
+  },[todos,setTodos])
 
 
   return (
