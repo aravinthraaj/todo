@@ -1,21 +1,37 @@
-import React, { useContext } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import PropTypes from 'prop-types';
-import { todoContext } from '../App';
+import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import PropTypes from "prop-types";
+// import { todoContext } from '../App';
+
+// Default state for useState
+const defaultState = {
+  id: "",
+  task: "",
+  completed: false,
+  comment: false,
+  comment_data: "",
+};
 
 function TodoForm({ addTodo }) {
-  const {todo,setTodo} = useContext(todoContext);
-  
+  const [todo, setTodo] = useState(defaultState);
+
   function getInputOnChange(e) {
-    setTodo((todo) => ({ ...todo, task: e.target.value }));
+    const { value: task } = e.target;
+    setTodo((todo) => ({ ...todo, task }));
+  }
+
+  async function UpdateTodo(){
+    
   }
 
   function handleInput(e) {
     e.preventDefault();
-    if (todo.task.trim()) {
-      addTodo({ ...todo, id: uuidv4() });
-      setTodo((todo) => ({ ...todo, task: '' }));
+    if (!todo.task.trim()) {
+      alert("Todo should have a body!");
+      return;
     }
+    addTodo({ ...todo, id: uuidv4() });
+    setTodo(defaultState);
   }
 
   return (

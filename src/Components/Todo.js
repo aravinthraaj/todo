@@ -1,46 +1,35 @@
-import React,{useContext,useCallback} from 'react';
-import PropTypes from 'prop-types';
-import Comment from './Comment';
-import { todosContext } from '../App';
+import React, { useCallback } from "react";
+import PropTypes from "prop-types";
+import Comment from "./Comment";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheckCircle,
   faComment,
   faTimesCircle,
-} from '@fortawesome/free-regular-svg-icons';
+} from "@fortawesome/free-regular-svg-icons";
 
 function Todo(props) {
-  const {todo,toggle, removeTodo} =
-		props;
-  const {todos, setTodos}= useContext(todosContext);
+  const { todo, toggle, removeTodo, updateTodo } = props;
 
-  function hanldeCompleteClick() {
-    toggle("completed",todo.id);
-  }
+  const hanldeCompleteClick = useCallback(() => {
+    toggle("completed", todo.id);
+  }, [toggle, todo.id]);
 
-  function handleRemoveTodo() {
+  const handleRemoveTodo = useCallback(() => {
     removeTodo(todo.id);
-  }
+  }, [removeTodo, todo.id]);
 
-  function handleComment() {
-    toggle("comment",todo.id);
-  }
+  const handleComment = useCallback(() => {
+    toggle("comment", todo.id);
+  }, [toggle, todo.id]);
 
-  const getInputComment = useCallback((value, name, id)=>{
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          return {
-            ...todo,
-            [name]: value,
-          };
-        }
-        return todo;
-      })
-    );
-  },[todos,setTodos])
-
+  const getInputComment = useCallback(
+    (value, name) => {
+      updateTodo({ id: todo.id, [name]: value });
+    },
+    [todo.id, updateTodo]
+  );
 
   return (
     <div className="todo-container">
@@ -48,7 +37,7 @@ function Todo(props) {
         <div className="todo-data">
           <li
             style={{
-              textDecoration: todo.completed ? 'line-through' : null,
+              textDecoration: todo.completed ? "line-through" : null,
             }}
           >
             {todo.task}
@@ -89,5 +78,6 @@ Todo.propTypes = {
   todo: PropTypes.object,
   toggle: PropTypes.func,
   removeTodo: PropTypes.func,
+  updateTodo: PropTypes.func,
 };
 export default Todo;
