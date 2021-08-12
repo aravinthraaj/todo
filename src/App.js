@@ -6,6 +6,7 @@ import Todo from "./Components/Todo";
 import "./App.css";
 
 // const LOCAL_STORAGE_KEY = "todo-list-store";
+const SERVICE_URL = "https://stormy-spire-33682.herokuapp.com/v1" 
 
 export const todoContext = React.createContext({
   todo: {
@@ -27,16 +28,58 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    async function getdata() {
-      const response = await fetch(
-        "https://stormy-spire-33682.herokuapp.com/v1/todo"
-      );
-      const jsondata = await response.json();
-      console.log(jsondata.data);
-      setTodos(jsondata.data);
-    }
-    getdata();
+    loadTodos(({ data }) => setTodos(data))
   }, []);
+
+  function loadTodos(callback) {
+    fetch(`${SERVICE_URL}/todo`)
+      .then(response => response.json())
+      .then(callback)
+      .catch(e => console.warn(e))
+  }
+
+  function pushTodo(todo, callback) {
+    fetch(`${SERVICE_URL}/todo`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(todo)
+    })
+      .then(r => r.json)
+      .then(body => {
+        if (typeof callback !== "undefined") {
+          callback(undefined, body)
+        }
+      })
+      .catch(e => {
+        console.warn(e)
+        if (typeof callback !== "undefined") {
+          callback(e, undefined)
+        }
+      })
+  }
+
+  function popTodo(id, callback) {
+    fetch(`${SERVICE_URL}/todo/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(r => r.json)
+      .then(body => {
+        if (typeof callback !== "undefined") {
+          callback(undefined, body)
+        }
+      })
+      .catch(e => {
+        console.warn(e)
+        if (typeof callback !== "undefined") {
+          callback(e, undefined)
+        }
+      })
+  }
 
   // useEffect(() => {
   //   async function updateTodo() {
@@ -87,13 +130,29 @@ function App() {
     );
   }, []);
 
-  const removeTodo = useCallback((id) => {
-    setTodos((todos) => todos.filter((todo) => todo.id !== id));
-  }, []);
+  function removeTodo(id) {
+    popTodo(id, (err) => {
+      if (err) {
+        alert("Unable to remove todo. Request failed")
+      }
+      setTodos(todos.filter((todo) => todo.id !== id));
+    })
+  }
 
-  const addTodo = useCallback((todo) => {
+  function addTodo(todo) {
     setTodos((todos) => [todo, ...todos]);
-  }, []);
+
+    pushTodo(todo)
+  }
+
+
+  // const removeTodo = useCallback((id) => {
+  //   setTodos((todos) => todos.filter((todo) => todo.id !== id));
+  // }, []);
+
+  // const addTodo = useCallback((todo) => {
+  //   setTodos((todos) => [todo, ...todos]);
+  // }, []);
 
   const updateTodo = useCallback(({ id, ...todo }) => {
     setTodos((todos) =>

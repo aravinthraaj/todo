@@ -20,10 +20,6 @@ function TodoForm({ addTodo }) {
     setTodo((todo) => ({ ...todo, task }));
   }
 
-  async function UpdateTodo(){
-    
-  }
-
   function handleInput(e) {
     e.preventDefault();
     if (!todo.task.trim()) {
