@@ -89,4 +89,5 @@ Todo.propTypes = {
   toggle: PropTypes.func,
   removeTodo: PropTypes.func,
 };
+
 export default Todo;
