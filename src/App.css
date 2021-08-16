@@ -1,160 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 *,
 *::after,
 *::before {
-	margin: 0;
-	padding: 0;
-	box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 html {
-	font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-	box-sizing: border-box;
-	font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 .App {
-	text-align: center;
-	font-size: 4rem;
-	min-height: 100vh;
-	width: 100%;
-	background-color: rgb(49, 49, 49);
-	color: beige;
-	padding: 2rem;
+  text-align: center;
+  font-size: 4rem;
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgb(49, 49, 49);
+  color: beige;
+  padding: 2rem;
 }
 
 form {
-	padding: 5rem;
+  padding: 5rem;
 }
 
 .form input {
-	margin-right: 2rem;
-	border: none;
-	height: 3.5rem;
-	width: 100%;
-	max-width: 50rem;
-	border-radius: 25px;
-	padding: 2rem;
-	outline: none;
-	transition: all 0.2s;
-	display: inline-block;
-	font-family: 'Montserrat', sans-serif;
+  margin-right: 2rem;
+  border: none;
+  height: 3.5rem;
+  width: 100%;
+  max-width: 50rem;
+  border-radius: 25px;
+  padding: 2rem;
+  outline: none;
+  transition: all 0.2s;
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
 }
 
 .form input:active,
 .form input:focus {
-	transform: scale(1.04);
+  transform: scale(1.04);
 }
 
 .form button {
-	border: none;
+  border: none;
 }
 
 .todo-list ul {
-	width: 100%;
+  width: 100%;
 }
 
 button {
-	text-decoration: none;
-	text-transform: uppercase;
-	padding: 1rem 4rem;
-	border-radius: 10rem;
-	display: inline-block;
-	transition: all 0.2s;
-	border: none;
-	cursor: pointer;
-	margin: 1rem;
-	background-color: rgb(255, 255, 49);
-	font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1rem 4rem;
+  border-radius: 10rem;
+  display: inline-block;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  margin: 1rem;
+  background-color: rgb(255, 255, 49);
+  font-family: "Montserrat", sans-serif;
 }
 
 button:hover {
-	transform: translateY(-0.3rem);
-	box-shadow: 0 1rem 1rem rgba(rgb(99, 99, 99), 0.3);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 1rem rgba(rgb(99, 99, 99), 0.3);
 }
 
 button:active,
 button:focus {
-	outline: none;
-	transform: translateY(-0.1rem);
-	box-shadow: 0 0.5rem 0.5rem rgba(rgb(99, 99, 99), 0.3);
+  outline: none;
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 0.5rem rgba(rgb(99, 99, 99), 0.3);
 }
 
 .button-todo {
-	margin: 1rem;
-	display: inline-block;
-	transition: all 0.2s;
-	cursor: pointer;
-	margin: 1rem;
+  margin: 1rem;
+  display: inline-block;
+  transition: all 0.2s;
+  cursor: pointer;
+  margin: 1rem;
 }
 
 .button-todo:hover {
-	transform: translateY(-0.3rem);
-	box-shadow: 0 1rem 1rem rgba(rgb(99, 99, 99), 0.3);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 1rem rgba(rgb(99, 99, 99), 0.3);
 }
 
 .button-todo:active,
 .button-todo:focus {
-	outline: none;
-	transform: translateY(-0.1rem);
-	box-shadow: 0 0.5rem 0.5rem rgba(rgb(99, 99, 99), 0.3);
+  outline: none;
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 0.5rem rgba(rgb(99, 99, 99), 0.3);
 }
 
 .btn-complete {
-	color: greenyellow;
+  color: greenyellow;
 }
 .btn-comment {
-	color: rgb(145, 242, 255);
+  color: rgb(145, 242, 255);
 }
 .btn-close {
-	color: rgba(255, 0, 0, 0.74);
+  color: rgba(255, 0, 0, 0.74);
 }
 .todo-list ul {
-	padding: 3rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-family: 'Montserrat', sans-serif;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
 }
 
 .todo-container {
-	width: 100%;
-	max-width: 50rem;
-	display: flex;
-	font-size: 2rem;
-	flex-direction: column;
-	background-color: rgb(59, 59, 59);
-	border-radius: 0.5rem;
-	margin: 1rem;
+  width: 100%;
+  max-width: 50rem;
+  display: flex;
+  font-size: 2rem;
+  flex-direction: column;
+  background-color: rgb(59, 59, 59);
+  border-radius: 0.5rem;
+  margin: 1rem;
 }
 
 .toto-body {
-	display: inline-flex;
-	font-size: 2rem;
-	flex-direction: row;
-	justify-content: center;
+  display: inline-flex;
+  font-size: 2rem;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .toto-body li {
-	width: 100%;
-	list-style: none;
-	display: inline;
-	margin: 1rem;
+  width: 100%;
+  list-style: none;
+  display: inline;
+  margin: 1rem;
 }
 
 .todo-data {
-	display: flex;
-	justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .comment {
-	padding: 1rem;
-	margin-bottom: 1rem;
-	border-radius: .5rem;
-	outline-color: rgb(104, 104, 104);
-	font-family: 'Montserrat', sans-serif;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  outline-color: rgb(104, 104, 104);
+  font-family: "Montserrat", sans-serif;
 }
+
+.comment-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  align-items: center;
+}
+
+.comment-container button {
+  min-width: 6rem;
+}
+
+.comment-container textarea {
+	width: 100%;
+  }

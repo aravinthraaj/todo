@@ -6,7 +6,7 @@ function Comment({ getInputComment, id, value = '' }) {
     getInputComment(e.target.value, e.target.name, id);
   };
   return (
-    <div>
+    <div className="comment-container">
       <textarea
         className="comment"
         name="comment_data"
@@ -16,6 +16,7 @@ function Comment({ getInputComment, id, value = '' }) {
         value={value}
         onChange={handleInputChange}
       ></textarea>
+      <button>save</button>
     </div>
   );
 }
