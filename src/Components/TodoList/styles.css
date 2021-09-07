@@ -1,0 +1,11 @@
+.todo-list ul {
+	width: 100%;
+}
+
+.todo-list ul {
+	padding: 3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: 'Montserrat', sans-serif;
+}

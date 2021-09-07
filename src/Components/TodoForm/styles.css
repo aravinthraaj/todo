@@ -1,0 +1,26 @@
+form {
+	padding: 5rem;
+}
+
+.form input {
+	margin-right: 2rem;
+	border: none;
+	height: 3.5rem;
+	width: 100%;
+	max-width: 50rem;
+	border-radius: 25px;
+	padding: 2rem;
+	outline: none;
+	transition: all 0.2s;
+	display: inline-block;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.form input:active,
+.form input:focus {
+	transform: scale(1.04);
+}
+
+.form button {
+	border: none;
+}

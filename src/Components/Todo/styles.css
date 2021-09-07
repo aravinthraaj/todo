@@ -1,0 +1,62 @@
+
+.button-todo {
+	margin: 1rem;
+	display: inline-block;
+	transition: all 0.2s;
+	cursor: pointer;
+	margin: 1rem;
+}
+
+.button-todo:hover {
+	transform: translateY(-0.3rem);
+	box-shadow: 0 1rem 1rem rgba(rgb(99, 99, 99), 0.3);
+}
+
+.button-todo:active,
+.button-todo:focus {
+	outline: none;
+	transform: translateY(-0.1rem);
+	box-shadow: 0 0.5rem 0.5rem rgba(rgb(99, 99, 99), 0.3);
+}
+
+
+
+.todo-container {
+	width: 100%;
+	max-width: 50rem;
+	display: flex;
+	font-size: 2rem;
+	flex-direction: column;
+	background-color: rgb(59, 59, 59);
+	border-radius: 0.5rem;
+	margin: 1rem;
+}
+
+.toto-body {
+	display: inline-flex;
+	font-size: 2rem;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.toto-body li {
+	width: 100%;
+	list-style: none;
+	display: inline;
+	margin: 1rem;
+}
+
+.todo-data {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.btn-complete {
+	color: greenyellow;
+}
+.btn-comment {
+	color: rgb(145, 242, 255);
+}
+.btn-close {
+	color: rgba(255, 0, 0, 0.74);
+}
