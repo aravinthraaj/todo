@@ -14,7 +14,7 @@ import {
 // const LOCAL_STORAGE_KEY = "todo-list-store";
 
 
-const user = "null";
+const user = null;
 
 function App() {
 
