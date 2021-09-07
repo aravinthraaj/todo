@@ -8,8 +8,7 @@ import "./App.css";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 // const LOCAL_STORAGE_KEY = "todo-list-store";
